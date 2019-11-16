@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {Mine, Clue, GameStateEnum, TileStateEnum} from './core'
-import FieldComponent from './field'
+import FieldComponent from './Field'
 
 export default class Minesweeper extends Component {
   constructor(props) {

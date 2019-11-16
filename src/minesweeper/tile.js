@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import ReactTooltip from 'react-tooltip'
 import {Mine, TileStateEnum} from './core'
 
 const TILE_COLORS = ['transparent', 'blue', 'green', 'red', 'purple', 'maroon', 'black', 'gray', 'turquoise'];
@@ -20,13 +19,6 @@ export default class TileComponent extends Component {
       width: '24px',
       height: '24px',
       color: TILE_COLORS[tile.value],
-    }
-    
-    let tileImage = tile.state === TileStateEnum.CLOSED ? '' : 'mark';
-    if(tile.state === TileStateEnum.OPEN) {
-      if(tile instanceof Mine) {
-        tileImage = 'mine';
-      }
     }
 
     return (

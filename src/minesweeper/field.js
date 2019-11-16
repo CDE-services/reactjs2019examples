@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import TileComponent from './tile'
+import TileComponent from './Tile'
 
 export default class FieldComponent extends Component {
   render() {

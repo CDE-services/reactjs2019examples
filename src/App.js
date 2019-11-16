@@ -1,105 +1,60 @@
 import React, { Component } from 'react';
 import './App.css';
-import Table from './components/Table';
-import Form from "./components/Form";
 import Minesweeper from './minesweeper/Minesweeper';
+import Characters from './components/Characters';
+import RoutingExample from './components/RoutingExample';
+import RandomNumber from './setStateExamples/setStateHierarchy/RandomNumber';
+import SimpleForms from './setStateExamples/correctSetState/SimpleForms';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import CharactersWithRest from './rest/CharactersWithRest';
 
 class App extends Component {
-  state = {
-    characters: [
-      {name: 'John Smith', job: 'lover'},
-      {name: 'Chester Bennington', job: 'singer'},
-      {name: 'Stephen Hawking', job: 'scientist'},
-      {name: 'Iron Man', job: 'superhero'},
-      {name: 'Isaac Asimov', job: 'writer'}
-    ],
-    editMode: false,
-    addMode: false,
-    editedCharacterIndex: -1,
-  };
-
   render() {
-    const reactVar = `React`;
-    const { characters, editMode, addMode, editedCharacterIndex } = this.state;
-
     return (
+      <Router>
         <div className="App">
-          <Minesweeper></Minesweeper>
+          <nav>
+            <ul>
+              <li><Link to='/characters'>Characters example</Link></li>
+              <li><Link to='/characters-with-rest'>Characters with REST</Link></li>
+              <li><Link to='/component-hierarchy'>Component hierarchy example</Link></li>
+              <li><Link to='/simple-forms'>Simple forms example</Link></li>
+              <li><Link to='/minesweeper'>Minesweeper</Link></li>
+              <li><Link to='/routing'>Routing example</Link></li>
+            </ul>
+          </nav>
 
-          <h1>Hello {reactVar} World!</h1>
-
-          <button onClick={this.addCharacter} disabled={editMode || addMode}>Add character</button>
-          <Table characterData={characters}
-                 editChar={this.editCharacter}
-                 remChar={this.removeCharacter}
-          />
-
-          { addMode && 
-            <Form handleSubmit={this.handleAdd} 
-                  handleClose={this.handleClose} 
-                  editMode={false} 
-                  editedCharacter={null} /> 
-          }
-          {editMode && 
-            <Form handleSubmit={this.handleEdit} 
-                  handleClose={this.handleClose} 
-                  editMode={true} 
-                  editedCharacter={characters[editedCharacterIndex]} /> 
-          }
+          <Switch>
+            <Route path='/characters'>
+              <Characters />
+            </Route>
+            <Route path='/characters-with-rest'>
+              <CharactersWithRest />
+            </Route>
+            <Route path='/component-hierarchy'>
+              <RandomNumber />
+            </Route>
+            <Route path='/simple-forms'>
+              <SimpleForms />
+            </Route>
+            <Route path='/minesweeper'>
+              <Minesweeper />
+            </Route>
+            <Route path='/routing'>
+              <RoutingExample />
+            </Route>
+            <Route path='/'>
+              <RandomNumber />
+            </Route>
+          </Switch>
         </div>
+      </Router>
     );
-  }
-
-  removeCharacter = index => {
-    const { characters } = this.state;
-
-    this.setState({
-      characters: characters.filter((character, i) => {
-        return i !== index;
-      })
-    })
-  }
-
-  addCharacter = () => {
-    this.setState({
-      addMode: true,
-      editMode: false,
-    });
-  }
-
-  editCharacter = index => {
-    this.setState({
-      addMode: false,
-      editMode: true,
-      editedCharacterIndex: index
-    });
-  }
-
-  handleAdd = character => {
-    this.setState({ 
-      addMode: false,
-      editMode: false,
-      characters: [...this.state.characters, character], 
-      editedCharacterIndex: -1
-    })
-  }
-
-  handleEdit = character => {
-    const newCharacters = [...this.state.characters];
-    newCharacters[this.state.editedCharacterIndex] = character;
-    this.setState({ 
-      addMode: false,
-      editMode: false,
-      characters: newCharacters, 
-      editedCharacterIndex: -1
-    })
-  }
-
-  handleClose = () => {
-    this.setState({
-      addMode: false,
-      editMode: false,
-    })
   }
 }
 
