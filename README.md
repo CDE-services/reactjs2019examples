@@ -1,19 +1,19 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 # Examples
-* Characters - simple CRUD app example
-* Characters with REST - simple REST API calls in the previous Characters example
-* Component hierarchy example - a tutorial on how to correctly create and respect a component hierarchy when sharing data between parent and child components
-* Simple forms example - multiple forms example on how to correctly get data from different kinds of form components (checkboxes, toggles etc.)
-* Minesweeper - complete, playable Minesweeper game in React
-* Routing example - example on how to create simple routing
+* **Characters** - simple CRUD app example
+* **Characters with REST** - simple REST API calls in the previous Characters example
+* **Component hierarchy example** - a tutorial on how to correctly create and respect a component hierarchy when sharing data between parent and child components
+* **Simple forms example** - multiple forms example on how to correctly get data from different kinds of form components (checkboxes, toggles etc.)
+* **Minesweeper** - complete, playable Minesweeper game in React
+* **Routing example** - example on how to create simple routing
 
 # Packages
-* src/components - contains simple characters example and routing example
-* src/minesweeper - contains the code of the Minesweeper game
-* src/rest - contains the rest example
-* src/setStateExamples/correctSetState - contains all components used in Simple forms example
-* src/setStateExamples/setStateHierarchy - contains all components used in Component hierarchy example
+* `src/components` - contains simple characters example and routing example
+* `src/minesweeper` - contains the code of the Minesweeper game
+* `src/rest` - contains the rest example
+* `src/setStateExamples/correctSetState` - contains all components used in Simple forms example
+* `src/setStateExamples/setStateHierarchy` - contains all components used in Component hierarchy example
 
 
 ## Available Scripts
